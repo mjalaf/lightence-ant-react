@@ -8,15 +8,26 @@ export const httpApi = axios.create({
 });
 
 httpApi.interceptors.request.use((config) => {
-  config.headers = { ...config.headers, Authorization: `Bearer ${readToken()}` };
+  config.headers[`Authorization`] = `Bearer ${readToken()}`;
+  //config.headers = { ...config.headers, Authorization: `Bearer ${readToken()}` };
 
   return config;
 });
 
-httpApi.interceptors.response.use(undefined, (error: AxiosError) => {
-  throw new ApiError<ApiErrorData>(error.response?.data.message || error.message, error.response?.data);
-});
-
+httpApi.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  function (error: AxiosError) {
+    // Do something with response error
+    if (error.response?.status === 401) {
+      console.log('unauthorized, logging out ...');
+      //    auth.logout();
+      //   router.replace('/auth/login');
+    }
+    throw new ApiError<ApiErrorData>('');
+  },
+);
 export interface ApiErrorData {
   message: string;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { createComponent } from '@lit-labs/react';
+import { createComponent } from '@lit/react';
 import { RoundSlider } from 'round-slider';
 import { hToMS, msToH } from '@app/utils/utils';
 import * as S from './NightTimeSlider.styles';
@@ -11,9 +11,14 @@ interface NightTimeSliderProps {
   setNightTime: (nightTime: number[]) => void;
 }
 
-const RoundSliderComponent = createComponent(React, 'round-slider', RoundSlider, {
-  onValueChanged: 'value-changed',
-  onChange: 'value-changing',
+const RoundSliderComponent = createComponent({
+  tagName: 'round-slider',
+  elementClass: RoundSlider,
+  react: React,
+  events: {
+    onValueChanged: 'value-changed',
+    onChange: 'value-changing',
+  },
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

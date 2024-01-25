@@ -19,6 +19,7 @@ export const Burger: React.FC<BurgerProps> = ({ className, onClick }) => (
 );
 
 export const BurgerIcon = styled(Burger)<{ isCross: boolean }>`
+·····
   cursor: pointer;
   transform: translate3d(0, 0, 0);
 

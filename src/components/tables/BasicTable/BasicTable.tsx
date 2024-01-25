@@ -106,7 +106,8 @@ export const BasicTable: React.FC = () => {
           ],
         },
       ],
-      onFilter: (value: string | number | boolean, record: BasicTableRow) => record.name.includes(value.toString()),
+      onFilter: (value: string | number | bigint | boolean, record: BasicTableRow) =>
+        record.name.includes(value.toString()),
     },
     {
       title: t('common.age'),
@@ -142,7 +143,7 @@ export const BasicTable: React.FC = () => {
         return (
           <BaseSpace>
             <BaseButton
-              type="ghost"
+              type="default"
               onClick={() => {
                 notificationController.info({ message: t('tables.inviteMessage', { name: record.name }) });
               }}
