@@ -1,4 +1,4 @@
-# Lightence
+# Lightence 
 
 React-powered **100% FREE** Admin Dashboard Template for building rich user interfaces significantly faster. For developers of all levels. Open-source and maintained by the [Altence](https://altence.com) team.
 
@@ -37,7 +37,7 @@ Check out a [live demo](https://altence.com/lightence-landing).
 ### Installation
 
 #### Requirements
-- [Node.js](https://nodejs.org/en/) version _>=16.0.0_
+- [Node.js](https://nodejs.org/en/) version _>=20.0.0_
 - [yarn](https://yarnpkg.com/)
 - [git](https://git-scm.com/)
 
